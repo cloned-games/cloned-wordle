@@ -1,0 +1,25 @@
+language: node_js
+node_js:
+  - 14
+branches:
+  only:
+    - develop
+    - master
+cache:
+  directories:
+    - "node_modules"
+before_install:
+  - echo "Preparing environment"
+  - echo "Setting up yarn" && npm install -g yarn
+  - echo "Setting up eslint for code quality checks" && yarn global add eslint
+install:
+  - yarn install
+before_script:
+  - yarn lint
+  - yarn test
+script:
+  - yarn build
+after_failure:
+  - echo "Build verification failed" && exit 1
+after_deploy:
+  - echo "All done"
