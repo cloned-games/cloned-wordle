@@ -1,19 +1,51 @@
 import './Keyboard.css';
-import PropTypes from 'prop-types';
 import React from 'react';
 
-const Keyboard = ({ keys }) => (
-  <div className="keyboard-container">
-    { keys }
-  </div>
-);
+function Keyboard() {
+  const keyboardKeys = [
+    'Q',
+    'W',
+    'E',
+    'R',
+    'T',
+    'Y',
+    'U',
+    'I',
+    'O',
+    'P',
+    'A',
+    'S',
+    'D',
+    'F',
+    'G',
+    'H',
+    'J',
+    'K',
+    'L',
+    'ENTER',
+    'Z',
+    'X',
+    'C',
+    'V',
+    'B',
+    'N',
+    'M',
+    '«',
+  ];
 
-Keyboard.defaultProps = {
-  keys: 'QWERTY',
-};
+  const handleClick = (letter) => {
+    console.log('clicked: ', letter);
+  };
 
-Keyboard.propTypes = {
-  keys: PropTypes.string,
-};
+  return (
+    <div className="keyboard-container">
+      {keyboardKeys.map((letter, index) => (
+        <button type="button" onClick={() => handleClick(letter)} key={index}>
+          {letter}
+        </button>
+      ))}
+    </div>
+  );
+}
 
 export default Keyboard;

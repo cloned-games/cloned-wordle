@@ -1,3 +1,19 @@
 .grid-container {
-  height: 30px;
+  width: 330px;
+  margin-bottom: 30px;
+}
+
+.grid-container div {
+  display: flex;
+}
+
+.grid-container .cell {
+  width: 62px;
+  height: 62px;
+  border: 2px solid#3a3a3c;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 2px;
 }

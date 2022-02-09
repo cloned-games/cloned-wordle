@@ -1,23 +1,27 @@
 import './Grid.css';
-import PropTypes from 'prop-types';
 import React from 'react';
-import GridRow from './GridRow';
 
-function Grid({ letters }) {
-  const num = Number(letters);
+function Grid() {
+  const rows = [
+    ['', '', '', '', ''],
+    ['', '', '', '', ''],
+    ['', '', '', '', ''],
+    ['', '', '', '', ''],
+    ['', '', '', '', ''],
+    ['', '', '', '', ''],
+  ];
+
   return (
     <div className="grid-container">
-      <GridRow letters={num} key="0" />
+      {rows.map((row, rowIndex) => (
+        <div id={'row-' + rowIndex} key={'row-' + rowIndex}>
+          {row.map((cell, cellIndex) => (
+            <div className="cell" id={'row-' + rowIndex + '-cell-' + cellIndex} value="A" key={'row-' + rowIndex + '-cell-' + cellIndex}>Z</div>
+          ))}
+        </div>
+      ))}
     </div>
   );
 }
-
-Grid.defaultProps = {
-  letters: '5',
-};
-
-Grid.propTypes = {
-  letters: PropTypes.string,
-};
 
 export default Grid;

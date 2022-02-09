@@ -1,3 +1,24 @@
 .keyboard-container {
-  height: 30px;
+  width: 510px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.keyboard-container button {
+  width: 43px;
+  height: 58px;
+  border-radius: 4px;
+  border: none;
+  background-color: #818384;
+  color: white;
+  margin: 4px;
+}
+
+.keyboard-container button:nth-child(11) {
+  margin-left: 30px;
+}
+
+.keyboard-container button:nth-child(20),
+.keyboard-container button:nth-child(28) {
+  width: 68px;
 }

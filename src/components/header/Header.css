@@ -1,3 +1,5 @@
 .header-container {
-  height: 30px;
+  width: 510px;
+  text-align: center;
+  border-bottom: solid 1px #3a313c;
 }

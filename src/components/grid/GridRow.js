@@ -16,7 +16,7 @@ function GridRow({ num }) {
 }
 
 GridRow.defaultProps = {
-  num: '5',
+  num: 5,
 };
 
 GridRow.propTypes = {

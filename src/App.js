@@ -9,7 +9,7 @@ function App() {
     <div className="game-container">
       <Header name="Cloned Wordle" />
       <Grid letters="5" />
-      <Keyboard keys="QWERTY" />
+      <Keyboard type="QWERTY" />
     </div>
   );
 }
