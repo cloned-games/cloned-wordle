@@ -1,19 +1,23 @@
 import './Grid.css';
 import PropTypes from 'prop-types';
 import React from 'react';
+import GridRow from './GridRow';
 
-const Grid = ({ input }) => (
-  <div className="grid-container">
-    { input }
-  </div>
-);
+function Grid({ letters }) {
+  const num = Number(letters);
+  return (
+    <div className="grid-container">
+      <GridRow letters={num} key="0" />
+    </div>
+  );
+}
 
 Grid.defaultProps = {
-  input: 'ABCZX',
+  letters: '5',
 };
 
 Grid.propTypes = {
-  input: PropTypes.string,
+  letters: PropTypes.string,
 };
 
 export default Grid;

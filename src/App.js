@@ -8,7 +8,7 @@ function App() {
   return (
     <div className="game-container">
       <Header name="Cloned Wordle" />
-      <Grid input="ELDER" />
+      <Grid letters="5" />
       <Keyboard keys="QWERTY" />
     </div>
   );

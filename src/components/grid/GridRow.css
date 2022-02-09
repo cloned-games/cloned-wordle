@@ -1,0 +1,22 @@
+.grid-row {
+  display: block;
+}
+
+.grid-cell[data-state='empty'] {
+  border: 2px solid black;
+}
+
+.grid-cell {
+  width: 100%;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  line-height: 2rem;
+  font-weight: bold;
+  vertical-align: middle;
+  box-sizing: border-box;
+  color: black;
+  text-transform: uppercase;
+  user-select: none;
+}
