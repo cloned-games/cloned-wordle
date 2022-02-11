@@ -30,6 +30,8 @@
     "react"
   ],
   "rules": {
+    "no-unused-vars": 0,
+    "no-param-reassign": 0,
     "no-console": "off",
     "prefer-template": "off",
     "react/no-array-index-key": 0,
