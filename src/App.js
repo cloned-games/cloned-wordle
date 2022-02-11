@@ -3,7 +3,8 @@ import Grid from './components/grid/Grid';
 import Keyboard from './components/keyboard/Keyboard';
 import Header from './components/header/Header';
 import 'animate.css';
-import WORD_LIST from './Words';
+import AppConfig from './configs/AppConfig';
+import WordList from './configs/WordList';
 import './App.css';
 
 function withoutTime(dateTime = new Date()) {
@@ -12,9 +13,7 @@ function withoutTime(dateTime = new Date()) {
   return date;
 }
 
-const WORD_LENGTH = 5;
-
-const FINDING_WORD = WORD_LIST[withoutTime().getTime() % WORD_LIST.length];
+const FINDING_WORD = WordList[withoutTime().getTime() % WordList.length];
 
 console.log(FINDING_WORD);
 
@@ -26,14 +25,14 @@ function App() {
   const addLetter = useCallback(
     (letter) => {
       setStatus(null);
-      if (word.length === WORD_LENGTH) return;
+      if (word.length === AppConfig.wordLength) return;
       setWord(word + letter.toLowerCase());
     },
     [word],
   );
 
   const validateWord = useCallback(() => {
-    if (!WORD_LIST.includes(word)) {
+    if (!WordList.includes(word)) {
       console.log('invalid word not in dict');
       setStatus(null);
     } else if (word === FINDING_WORD) {
@@ -68,7 +67,7 @@ function App() {
 
   return (
     <div className="game-container">
-      <Header name="Cloned Wordle" />
+      <Header name={AppConfig.applicationName} />
       <Grid
         letters={[
           ...letters,
