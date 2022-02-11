@@ -1,0 +1,40 @@
+/*className={cx({*/
+/*"bg-green-500": status === "correct",*/
+/*"bg-yellow-600": status === "missplaced",*/
+/*"bg-gray-500": status === "wrong",*/
+/*"text-white": !!status,*/
+/*})}*/
+
+.keyboard-key-svg {
+    width: 43px;
+    height: 58px;
+    border-radius: 4px;
+    border: none;
+    background-color: #a3a8a9;
+    color: white;
+    margin: 4px;
+    display: flex;
+    flex: 1.5;
+    justify-content: center;
+    align-items: center;
+}
+
+.keyboard-key {
+    width: 43px;
+    height: 58px;
+    border-radius: 4px;
+    border: none;
+    background-color: #a3a8a9;
+    color: white;
+    margin: 4px;
+    text-transform: uppercase;
+}
+
+.keyboard-key:nth-child(11) {
+    margin-left: 30px;
+}
+
+.keyboard-key:nth-child(20),
+.keyboard-key:nth-child(28) {
+    width: 68px;
+}

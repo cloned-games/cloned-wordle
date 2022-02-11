@@ -1,27 +1,24 @@
-import './Grid.css';
-import React from 'react';
+import GridCell from "./GridCell";
+import "./Grid.css";
 
-function Grid() {
-  const rows = [
-    ['', '', '', '', ''],
-    ['', '', '', '', ''],
-    ['', '', '', '', ''],
-    ['', '', '', '', ''],
-    ['', '', '', '', ''],
-    ['', '', '', '', ''],
-  ];
+const invalidWordAnimation = "animate__animated animate__shakeX";
 
+export default function Grid({ letters = [] }) {
+  const gridArray = Array.from(new Array(5 * 6));
   return (
     <div className="grid-container">
-      {rows.map((row, rowIndex) => (
-        <div id={'row-' + rowIndex} key={'row-' + rowIndex}>
-          {row.map((cell, cellIndex) => (
-            <div className="cell" id={'row-' + rowIndex + '-cell-' + cellIndex} value="A" key={'row-' + rowIndex + '-cell-' + cellIndex}>Z</div>
-          ))}
-        </div>
-      ))}
+      {gridArray.map((key, index) => {
+        const hasStatus = ["correct", "missplaced", "wrong"].includes(
+          letters[index]?.status
+        );
+        return (
+          <GridCell>
+            index={index}
+            style={{ animationDelay: hasStatus ? `${(index % 5) / 4}s` : "0s" }}
+            letter={letters[index]?.letter}
+          </GridCell>
+        );
+      })}
     </div>
   );
 }
-
-export default Grid;

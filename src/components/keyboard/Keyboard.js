@@ -1,51 +1,57 @@
-import './Keyboard.css';
-import React from 'react';
+import { useEffect } from "react";
+import Key from "./Key";
+import Backspace from "../../icons/Backspace";
+import "./Keyboard.css";
 
-function Keyboard() {
-  const keyboardKeys = [
-    'Q',
-    'W',
-    'E',
-    'R',
-    'T',
-    'Y',
-    'U',
-    'I',
-    'O',
-    'P',
-    'A',
-    'S',
-    'D',
-    'F',
-    'G',
-    'H',
-    'J',
-    'K',
-    'L',
-    'ENTER',
-    'Z',
-    'X',
-    'C',
-    'V',
-    'B',
-    'N',
-    'M',
-    '«',
-  ];
+const KEYS = `qwertyuiop::asdfghjkl::zxcvbnm`
+  .trim()
+  .split("::")
+  .map((x) => x.split(""));
 
-  const handleClick = (letter) => {
-    console.log('clicked: ', letter);
-  };
+function isLastRow(row) {
+  return row === KEYS[KEYS.length - 1];
+}
+
+export default function Keyboard({onKeyPress, onBackspace, onEnter, letters = []}) {
+  useEffect(() => {
+    function onKeyUp(event) {
+      if (KEYS.flat().includes(event.key)) onKeyPress(event.key);
+      if (event.key === "Backspace") onBackspace();
+      if (event.key === "Enter") onEnter();
+    }
+    window.addEventListener("keyup", onKeyUp);
+    return () => window.removeEventListener("keyup", onKeyUp);
+  });
 
   return (
     <div className="keyboard-container">
-      {keyboardKeys.map((letter, index) => (
-        <button type="button" onClick={() => handleClick(letter)} key={index}>
-          {letter}
-        </button>
-      ))}
+      {KEYS.map((row) => {
+        return (
+          <>
+            {isLastRow(row) && (
+              <Key onClick={onEnter}>
+                enter
+              </Key>
+            )}
+            {row.map((key) => {
+              const status = letters
+                .filter(({ letter }) => letter === key)
+                .map(({ status }) => status)
+                .sort()[0];
+              return (
+                <Key key={key} onClick={() => onKeyPress(key)}>
+                  {key}
+                </Key>
+              );
+            })}
+            {isLastRow(row) && (
+              <Key onClick={onBackspace}>
+                <Backspace />
+              </Key>
+            )}
+          </>
+        );
+      })}
     </div>
   );
 }
-
-export default Keyboard;

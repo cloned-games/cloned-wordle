@@ -1,19 +1,8 @@
 .grid-container {
-  width: 330px;
-  margin-bottom: 30px;
-}
-
-.grid-container div {
-  display: flex;
-}
-
-.grid-container .cell {
-  width: 62px;
-  height: 62px;
-  border: 2px solid#3a3a3c;
-  box-sizing: border-box;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 2px;
+  width: 350px;
+  height: 420px;
+  margin-bottom: 2px;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-gap: 5px;
 }
