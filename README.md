@@ -2,7 +2,11 @@
 
 This repository hosts a React javascript based version of the popular word game on NY Times, Wordle!
 
-To run this project please use npm or yarn package managers to build, test, and run this game locally as below:
+[![Build Status](https://app.travis-ci.com/sinhadotabhinav/cloned-wordle.svg?branch=develop)](https://app.travis-ci.com/sinhadotabhinav/cloned-wordle)
+
+## How to run?
+
+Please use npm or yarn package managers to build, test, and run this game locally as below:
 
 `$ yarn install`
 
@@ -14,12 +18,11 @@ To run this project please use npm or yarn package managers to build, test, and 
 
 `$ yarn start`
 
-This will start the backend on  [http://localhost:3000](http://localhost:3000).
+> This will start the backend on  [http://localhost:3000](http://localhost:3000).
 
 ## Work in Progress
 
 - building game rules Modal
-- menu and settings buttons in the Header
 - winning/ losing message
 - source link
 - statistics Modal (if seems useful)
