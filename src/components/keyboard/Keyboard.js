@@ -1,7 +1,7 @@
 import { React, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import Key from './Key';
-import Backspace from './Backspace';
+import Backspace from '../../assets/Backspace';
 import './Keyboard.css';
 
 const KEYS = 'qwertyuiop::asdfghjkl::zxcvbnm'

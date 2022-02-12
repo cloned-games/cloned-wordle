@@ -3,10 +3,9 @@ import Grid from './components/grid/Grid';
 import Keyboard from './components/keyboard/Keyboard';
 import Header from './components/header/Header';
 import Modal from './components/modal/Modal';
-import 'animate.css';
 import AppConfig from './configs/AppConfig';
 import WordList from './configs/WordList';
-import './App.css';
+import './Wordle.css';
 
 function withoutTime(dateTime = new Date()) {
   const date = new Date(dateTime.getTime());
@@ -18,7 +17,7 @@ const FINDING_WORD = WordList[withoutTime().getTime() % WordList.length];
 
 console.log(FINDING_WORD);
 
-function App() {
+function Wordle() {
   const [letters, setLetters] = useState([]);
   const [word, setWord] = useState('');
   const [status, setStatus] = useState(null);
@@ -28,8 +27,16 @@ function App() {
     setShowModal(true);
   };
 
+  const handleHelp = () => {
+    setShowModal(true);
+  };
+
   const handleCloseModal = () => {
     setShowModal(false);
+  };
+
+  const handleStatistics = () => {
+    setShowModal(true);
   };
 
   const addLetter = useCallback(
@@ -77,7 +84,12 @@ function App() {
 
   return (
     <div className="app-container">
-      <Header appName={AppConfig.applicationName} handleSettings={handleSettings} />
+      <Header
+        appName={AppConfig.applicationName}
+        handleHelp={handleHelp}
+        handleSettings={handleSettings}
+        handleStatistics={handleStatistics}
+      />
       <div className="game-container">
         <div className="board-container">
           <Grid
@@ -102,4 +114,4 @@ function App() {
   );
 }
 
-export default App;
+export default Wordle;

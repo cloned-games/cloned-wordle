@@ -14,6 +14,13 @@
   color: black;
 }
 
+.button-help {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0 10px;
+}
+
 .header-title {
   font-weight: 700;
   font-size: 37px;
@@ -28,7 +35,19 @@
 
 .header-menu-right {
   display: block;
-  cursor: pointer;
   border: none;
-  background-color: white;
+}
+
+.button-statistics {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0 10px;
+}
+
+.button-settings {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0 10px;
 }

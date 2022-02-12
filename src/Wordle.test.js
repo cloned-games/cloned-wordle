@@ -1,9 +1,9 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
-import App from './App';
+import Wordle from './Wordle';
 
 test('renders Cloned Wordle header', () => {
-  render(<App />);
+  render(<Wordle />);
   const linkElement = screen.getByText(/Cloned Wordle/i);
   expect(linkElement).toBeInTheDocument();
 });
