@@ -1,5 +1,34 @@
 .header-container {
-  width: 510px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+  height: 50px;
+  color: black;
+  border-bottom: 1px solid #d3d6da;
+  align-items: center;
+}
+
+.header-menu-left {
+  display: flex;
+  color: black;
+}
+
+.header-title {
+  font-weight: 700;
+  font-size: 37px;
+  line-height: 100%;
+  letter-spacing: -3px;
   text-align: center;
-  border-bottom: solid 1px #3a313c;
+  left: 0;
+  right: 0;
+  pointer-events: none;
+  display: block;
+}
+
+.header-menu-right {
+  display: block;
+  cursor: pointer;
+  border: none;
+  background-color: white;
 }

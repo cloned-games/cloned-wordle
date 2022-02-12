@@ -2,6 +2,7 @@ import { React, useState, useCallback } from 'react';
 import Grid from './components/grid/Grid';
 import Keyboard from './components/keyboard/Keyboard';
 import Header from './components/header/Header';
+import Modal from './components/modal/Modal';
 import 'animate.css';
 import AppConfig from './configs/AppConfig';
 import WordList from './configs/WordList';
@@ -21,6 +22,15 @@ function App() {
   const [letters, setLetters] = useState([]);
   const [word, setWord] = useState('');
   const [status, setStatus] = useState(null);
+  const [showModal, setShowModal] = useState(false);
+
+  const handleSettings = () => {
+    setShowModal(true);
+  };
+
+  const handleCloseModal = () => {
+    setShowModal(false);
+  };
 
   const addLetter = useCallback(
     (letter) => {
@@ -66,20 +76,28 @@ function App() {
   }, [word, letters]);
 
   return (
-    <div className="game-container">
-      <Header name={AppConfig.applicationName} />
-      <Grid
-        letters={[
-          ...letters,
-          ...word.split('').map((letter) => ({ status, letter })),
-        ]}
-      />
-      <Keyboard
-        letters={letters}
-        onKeyPress={addLetter}
-        onBackspace={() => setWord(word.slice(0, -1))}
-        onEnter={validateWord}
-      />
+    <div className="app-container">
+      <Header appName={AppConfig.applicationName} handleSettings={handleSettings} />
+      <div className="game-container">
+        <div className="board-container">
+          <Grid
+            letters={[
+              ...letters,
+              ...word.split('').map((letter) => ({ status, letter })),
+            ]}
+          />
+          <Keyboard
+            letters={letters}
+            onKeyPress={addLetter}
+            onBackspace={() => setWord(word.slice(0, -1))}
+            onEnter={validateWord}
+          />
+        </div>
+        <Modal
+          displayModal={showModal ? 'flex' : 'none'}
+          handleClose={handleCloseModal}
+        />
+      </div>
     </div>
   );
 }

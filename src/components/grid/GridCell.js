@@ -21,11 +21,11 @@ export default function GridCell({ index, letterObject }) {
   let bgColor = '';
   if (hasStatus) {
     if (letterObject?.status.match('correct')) {
-      bgColor = '#538d4e';
+      bgColor = '#6aaa64';
     } else if (letterObject?.status.match('misplaced')) {
-      bgColor = '#b59f3a';
+      bgColor = '#cab458';
     } else {
-      bgColor = '#3a3a3c';
+      bgColor = '#787c7e';
     }
     const style = {
       animation: '0.5s linear flip',

@@ -48,7 +48,7 @@ export default function Keyboard({
           })}
           {isLastRow(row) && (
           <Key onClick={onBackspace}>
-            <Backspace />
+            back
           </Key>
           )}
         </>

@@ -1,6 +1,4 @@
 .keyboard-container {
-  width: 510px;
-  display: flex;
-  flex-wrap: wrap;
+  margin: 10px;
+  display: inline-block;
 }
-

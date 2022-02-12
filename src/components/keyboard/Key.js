@@ -5,15 +5,9 @@ import './Key.css';
 export default function Key({ children, onClick }) {
   return (
     <>
-      {children.type?.toString().includes('Backspace()') ? (
-        <button type="button" onClick={onClick} className="keyboard-key-svg">
-          {children}
-        </button>
-      ) : (
-        <button type="button" onClick={onClick} className="keyboard-key">
-          {children}
-        </button>
-      )}
+      <button type="button" onClick={onClick} className="keyboard-key">
+        {children}
+      </button>
     </>
   );
 }

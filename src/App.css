@@ -7,10 +7,22 @@ body {
   background-color: white;
 }
 
-.game-container {
+.app-container {
   height: 90vh;
+}
+
+.game-container {
+  width: 100%;
+  max-width: 500px;
+  height: calc(100% - 500px);
+  margin: 0 auto;
+}
+
+.board-container {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
+  flex-grow: 1;
+  overflow: hidden;
 }
