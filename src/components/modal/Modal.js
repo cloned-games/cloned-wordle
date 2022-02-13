@@ -6,117 +6,180 @@ import './Modal.css';
 
 const EXAMPLES = ['WEARY', 'PILLS', 'VAGUE'];
 
-export default function Modal({ handleClose, displayModal }) {
-  return (
-    <div className="modal-container" style={{ display: displayModal }}>
-      <div className="modal-content-container">
-        <header className="modal-header">
-          <h1 className="modal-header-title">how to play?</h1>
-          <button
-            id="button-close"
-            type="button"
-            className="button-close"
-            aria-label="Close menu"
-            onClick={handleClose}
-          >
-            <Close />
-          </button>
-        </header>
-        <div className="model-content">
-          <div className="modal-instructions">
-            <p>
-              Guess the
-              <strong> WORDLE </strong>
-              in six tries.
-            </p>
-            <p>
-              Each guess must be a valid five-letter word. Hit the enter button to submit.
-            </p>
-            <p>
-              After each guess, the color of the tiles will change to show how close your guess was to the word.
-            </p>
-          </div>
-          <div className="modal-examples">
-            <p>
-              <strong>Examples</strong>
-            </p>
-            <div className="modal-example">
-              <div className="modal-example-grid">
-                {EXAMPLES[0].split('').map((x) => x.split('')).map((key, index) => {
-                  const letterObject = [];
-                  letterObject.push({ status: index === 0 ? 'correct' : '', letter: key.toString() });
-                  return (
-                    <GridCell
-                      index={index}
-                      letterObject={letterObject[0]}
-                    />
-                  );
-                })}
-              </div>
+export default function Modal({ handleClose, displayModal, modalType }) {
+  if (modalType === 'help') {
+    return (
+      <div className="modal-container" style={{ display: displayModal }}>
+        <div className="modal-content-container">
+          <header className="modal-header">
+            <h1 className="modal-header-title">how to play?</h1>
+            <button
+              id="button-close"
+              type="button"
+              className="button-close"
+              aria-label="Close menu"
+              onClick={handleClose}
+            >
+              <Close />
+            </button>
+          </header>
+          <div className="model-content">
+            <div className="modal-instructions">
               <p>
-                The letter
-                <strong> W </strong>
-                is in the word and in the correct spot.
+                Guess the
+                <strong> WORDLE </strong>
+                in six tries.
+              </p>
+              <p>
+                Each guess must be a valid five-letter word. Hit the enter button to submit.
+              </p>
+              <p>
+                After each guess, the color of the tiles will change to show how close your guess was to the word.
               </p>
             </div>
-            <div className="modal-example">
-              <div className="modal-example-grid">
-                {EXAMPLES[1].split('').map((x) => x.split('')).map((key, index) => {
-                  const letterObject = [];
-                  letterObject.push({ status: index === 1 ? 'misplaced' : '', letter: key.toString() });
-                  console.log(letterObject);
-                  return (
-                    <GridCell
-                      index={index}
-                      letterObject={letterObject[0]}
-                    />
-                  );
-                })}
-              </div>
+            <div className="modal-examples">
               <p>
-                The letter
-                <strong> I </strong>
-                is in the word but in the wrong spot.
+                <strong>Examples</strong>
+              </p>
+              <div className="modal-example">
+                <div className="modal-example-grid">
+                  {EXAMPLES[0].split('').map((x) => x.split('')).map((key, index) => {
+                    const letterObject = [];
+                    letterObject.push({ status: index === 0 ? 'correct' : '', letter: key.toString() });
+                    return (
+                      <GridCell
+                        index={index}
+                        letterObject={letterObject[0]}
+                      />
+                    );
+                  })}
+                </div>
+                <p>
+                  The letter
+                  <strong> W </strong>
+                  is in the word and in the correct spot.
+                </p>
+              </div>
+              <div className="modal-example">
+                <div className="modal-example-grid">
+                  {EXAMPLES[1].split('').map((x) => x.split('')).map((key, index) => {
+                    const letterObject = [];
+                    letterObject.push({ status: index === 1 ? 'misplaced' : '', letter: key.toString() });
+                    console.log(letterObject);
+                    return (
+                      <GridCell
+                        index={index}
+                        letterObject={letterObject[0]}
+                      />
+                    );
+                  })}
+                </div>
+                <p>
+                  The letter
+                  <strong> I </strong>
+                  is in the word but in the wrong spot.
+                </p>
+              </div>
+              <div className="modal-example">
+                <div className="modal-example-grid">
+                  {EXAMPLES[2].split('').map((x) => x.split('')).map((key, index) => {
+                    const letterObject = [];
+                    letterObject.push({ status: index === 4 ? 'wrong' : '', letter: key.toString() });
+                    console.log(letterObject);
+                    return (
+                      <GridCell
+                        index={index}
+                        letterObject={letterObject[0]}
+                      />
+                    );
+                  })}
+                </div>
+                <p>
+                  The letter
+                  <strong> U </strong>
+                  is not in the word in any spot.
+                </p>
+              </div>
+            </div>
+            <div className="modal-footer">
+              <p>
+                <strong>A new WORDLE will be available each day!</strong>
               </p>
             </div>
-            <div className="modal-example">
-              <div className="modal-example-grid">
-                {EXAMPLES[2].split('').map((x) => x.split('')).map((key, index) => {
-                  const letterObject = [];
-                  letterObject.push({ status: index === 4 ? 'wrong' : '', letter: key.toString() });
-                  console.log(letterObject);
-                  return (
-                    <GridCell
-                      index={index}
-                      letterObject={letterObject[0]}
-                    />
-                  );
-                })}
-              </div>
-              <p>
-                The letter
-                <strong> U </strong>
-                is not in the word in any spot.
-              </p>
-            </div>
-          </div>
-          <div className="modal-footer">
-            <p>
-              <strong>A new WORDLE will be available each day!</strong>
-            </p>
           </div>
         </div>
       </div>
-    </div>
-  );
+    );
+  }
+  if (modalType === 'settings') {
+    return (
+      <div className="modal-container-small" style={{ display: displayModal }}>
+        <div className="modal-content-container-small">
+          <header className="modal-header">
+            <h1 className="modal-header-title">game settings</h1>
+            <button
+              id="button-close"
+              type="button"
+              className="button-close"
+              aria-label="Close settings"
+              onClick={handleClose}
+            >
+              <Close />
+            </button>
+          </header>
+          <div className="model-content-statistics">
+            <div className="modal-instructions">
+              <p>
+                Hard Mode - Any revealed hints must be used in subsequent guesses
+                Dark Theme
+                Feedback
+                Email
+                Questions?
+                Footer
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+  if (modalType === 'statistics') {
+    return (
+      <div className="modal-container-small" style={{ display: displayModal }}>
+        <div className="modal-content-container-small">
+          <header className="modal-header">
+            <h1 className="modal-header-title">game statistics</h1>
+            <button
+              id="button-close"
+              type="button"
+              className="button-close"
+              aria-label="Close statistics"
+              onClick={handleClose}
+            >
+              <Close />
+            </button>
+          </header>
+          <div className="model-content">
+            <div className="modal-instructions">
+              <p>
+                Statisticos
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
 }
 
 Modal.defaultProps = {
-  handleClose: '',
   displayModal: 'none',
+  handleClose: '',
+  modalType: '',
 };
 
 Modal.propTypes = {
-  handleClose: PropTypes.func,
   displayModal: PropTypes.string,
+  handleClose: PropTypes.func,
+  modalType: PropTypes.string,
 };

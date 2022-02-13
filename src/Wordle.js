@@ -22,13 +22,16 @@ function Wordle() {
   const [word, setWord] = useState('');
   const [status, setStatus] = useState(null);
   const [showModal, setShowModal] = useState(false);
+  const [modalType, setModalType] = useState('help');
 
   const handleSettings = () => {
     setShowModal(true);
+    setModalType('settings');
   };
 
   const handleHelp = () => {
     setShowModal(true);
+    setModalType('help');
   };
 
   const handleCloseModal = () => {
@@ -37,6 +40,7 @@ function Wordle() {
 
   const handleStatistics = () => {
     setShowModal(true);
+    setModalType('statistics');
   };
 
   const addLetter = useCallback(
@@ -107,6 +111,7 @@ function Wordle() {
         </div>
         <Modal
           displayModal={showModal ? 'flex' : 'none'}
+          modalType={modalType}
           handleClose={handleCloseModal}
         />
       </div>

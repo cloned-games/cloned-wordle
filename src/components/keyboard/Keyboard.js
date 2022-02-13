@@ -31,9 +31,9 @@ export default function Keyboard({
       {KEYS.map((row) => (
         <>
           {isLastRow(row) && (
-          <Key onClick={onEnter}>
-            enter
-          </Key>
+            <Key onClick={onEnter}>
+              enter
+            </Key>
           )}
           {row.map((key) => {
             const updatedLetters = letters

@@ -24,6 +24,5 @@ Please use npm or yarn package managers to build, test, and run this game locall
 
 - winning/ losing message
 - source link
-- statistics Modal (if seems useful)
 - introduce game display modes (surprise) using menu bar toggles
 - introduce game levels using menu bar toggles
