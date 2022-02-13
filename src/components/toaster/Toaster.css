@@ -1,0 +1,34 @@
+.toaster-container {
+  position: fixed;
+  width: max-content;
+  max-width: 80%;
+  top: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  pointer-events: none;
+}
+
+.toaster {
+  background: #313030;
+  color: white;
+  animation: FadeOut linear 5s 2s both;
+  font-weight: bold;
+  border-radius: 8px;
+  padding: 0.5em 1em;
+  display: none;
+}
+
+@keyframes FadeOut {
+  0% {
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  70% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}

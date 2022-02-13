@@ -22,6 +22,7 @@ export default function Keyboard({
       if (event.key === 'Backspace') onBackspace();
       if (event.key === 'Enter') onEnter();
     }
+
     window.addEventListener('keyup', onKeyUp);
     return () => window.removeEventListener('keyup', onKeyUp);
   });
@@ -30,11 +31,6 @@ export default function Keyboard({
     <div className="keyboard-container">
       {KEYS.map((row) => (
         <>
-          {isLastRow(row) && (
-            <Key onClick={onEnter}>
-              enter
-            </Key>
-          )}
           {row.map((key) => {
             const updatedLetters = letters
               .filter(({ letter }) => letter === key)
@@ -47,9 +43,14 @@ export default function Keyboard({
             );
           })}
           {isLastRow(row) && (
-          <Key onClick={onBackspace}>
-            back
-          </Key>
+            <Key key="BACKSPACE" onClick={onBackspace}>
+              {'<<'}
+            </Key>
+          )}
+          {isLastRow(row) && (
+            <Key key="ENTER" onClick={onEnter}>
+              ENTER
+            </Key>
           )}
         </>
       ))}

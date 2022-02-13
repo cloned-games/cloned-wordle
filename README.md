@@ -22,7 +22,7 @@ Please use npm or yarn package managers to build, test, and run this game locall
 
 ## Work in Progress
 
-- winning/ losing message
-- source link
+- losing message
+- source link in rules page
 - introduce game display modes (surprise) using menu bar toggles
 - introduce game levels using menu bar toggles

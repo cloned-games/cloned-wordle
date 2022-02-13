@@ -3,6 +3,7 @@ import Grid from './components/grid/Grid';
 import Keyboard from './components/keyboard/Keyboard';
 import Header from './components/header/Header';
 import Modal from './components/modal/Modal';
+import Toaster from './components/toaster/Toaster';
 import AppConfig from './configs/AppConfig';
 import WordList from './configs/WordList';
 import './Wordle.css';
@@ -23,6 +24,8 @@ function Wordle() {
   const [status, setStatus] = useState(null);
   const [showModal, setShowModal] = useState(false);
   const [modalType, setModalType] = useState('help');
+  const [showToast, setShowToast] = useState(false);
+  const [toastMessage, setToastMessage] = useState('');
 
   const handleSettings = () => {
     setShowModal(true);
@@ -63,6 +66,8 @@ function Wordle() {
       ]);
       setWord('');
       console.log('Winner');
+      setToastMessage('Winner!');
+      setShowToast(true);
     } else {
       setLetters([
         ...letters,
@@ -96,6 +101,10 @@ function Wordle() {
       />
       <div className="game-container">
         <div className="board-container">
+          <Toaster
+            message={toastMessage}
+            showToaster={showToast}
+          />
           <Grid
             letters={[
               ...letters,
