@@ -2,10 +2,10 @@
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   grid-gap: 5px;
-  padding:10px;
+  padding: 10px;
   box-sizing: border-box;
-  width: 350px;
-  height: 420px;
+  width: auto;
+  height: auto;
   margin-top: 8em;
   margin-bottom: 8em;
 }

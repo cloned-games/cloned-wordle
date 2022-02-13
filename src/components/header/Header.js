@@ -21,9 +21,9 @@ export default function Header({
           <Help />
         </button>
       </div>
-      <div className="header-title">
+      <h1 className="header-title">
         { appName }
-      </div>
+      </h1>
       <div className="header-menu-right">
         <button
           id="button-statistics"

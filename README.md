@@ -22,7 +22,6 @@ Please use npm or yarn package managers to build, test, and run this game locall
 
 ## Work in Progress
 
-- building game rules Modal
 - winning/ losing message
 - source link
 - statistics Modal (if seems useful)

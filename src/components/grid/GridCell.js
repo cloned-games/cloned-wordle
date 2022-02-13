@@ -16,7 +16,7 @@ const flip = keyframes`
 `;
 
 export default function GridCell({ index, letterObject }) {
-  const hasStatus = ['correct', 'missplaced', 'wrong']
+  const hasStatus = ['correct', 'misplaced', 'wrong']
     .includes(letterObject?.status);
   let bgColor = '';
   if (hasStatus) {
@@ -32,6 +32,7 @@ export default function GridCell({ index, letterObject }) {
       animationDelay: (index % 5) / 2 + 's',
       transitionDelay: (index % 5) / 2 + 's',
       background: bgColor,
+      border: 'none',
       color: 'white',
     };
     return (
